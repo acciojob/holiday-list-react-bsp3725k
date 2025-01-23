@@ -32,10 +32,19 @@ const App = () => {
     { name: 'Mount Abu', country: 'India' },
     { name: 'Tirupati', country: 'India' },
     ]
-    
+   // Filter cities that are in India
+  const indianCities = cityList.filter((city) => city.country === "India");
+
   return (
     <div id="main">
-               {/* Do not remove the main div */}
+      {/* Do not remove the main div */}
+      <h1>Holiday List</h1>
+      <ol >
+        {indianCities.map((city, index) => (
+          // Adding a unique key in the format location1, location2, etc.
+          <li key={`location${index + 1}`} >{city.name}</li>
+        ))}
+      </ol>      
     </div>
   )
 }
